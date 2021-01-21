@@ -2,6 +2,7 @@ package com.example.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
@@ -15,6 +16,12 @@ public class EmployeeLoggingAspect {
     public void logBeforeGetEmployeeById(JoinPoint joinPoint) {
         System.out.println(
                 "EmployeeLoggingAspect.logBeforeGetEmployeeById() : " + joinPoint.getSignature().getName());
+    }
+
+    @AfterThrowing(pointcut = "execution(* com.example.aop.EmployeeManager.*(..))", throwing = "ex")
+    public void logAfterThrowingAllMethods(Exception ex) throws Throwable
+    {
+        System.out.println("****LoggingAspect.logAfterThrowingAllMethods() " + ex);
     }
 
     @Before("execution(public * getAllEmployee())")

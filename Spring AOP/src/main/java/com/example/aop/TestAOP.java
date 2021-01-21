@@ -17,6 +17,7 @@ public class TestAOP {
 
         manager.getEmployeeById(1);
         manager.getAllEmployee();
+        manager.createEmployee(new EmployeeDTO());
         managerV2.getAllEmployee();
     }
 }

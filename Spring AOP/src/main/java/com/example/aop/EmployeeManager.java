@@ -20,6 +20,7 @@ public class EmployeeManager {
 
     public void createEmployee(EmployeeDTO employee) {
         System.out.println("Method createEmployee() called");
+        throw new NullPointerException("ID not found");
     }
 
     public void deleteEmployee(Integer employeeId) {
