@@ -19,8 +19,7 @@ public class EmployeeLoggingAspect {
     }
 
     @AfterThrowing(pointcut = "execution(* com.example.aop.EmployeeManager.*(..))", throwing = "ex")
-    public void logAfterThrowingAllMethods(Exception ex) throws Throwable
-    {
+    public void logAfterThrowingAllMethods(Exception ex) throws Throwable {
         System.out.println("****LoggingAspect.logAfterThrowingAllMethods() " + ex);
     }
 
